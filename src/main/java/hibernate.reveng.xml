@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="ecommerceremate" match-name="categoria"/>
+  <table-filter match-catalog="ecommerceremate" match-name="cliente"/>
+  <table-filter match-catalog="ecommerceremate" match-name="imagen"/>
+  <table-filter match-catalog="ecommerceremate" match-name="localidad"/>
+  <table-filter match-catalog="ecommerceremate" match-name="login"/>
+  <table-filter match-catalog="ecommerceremate" match-name="marca"/>
+  <table-filter match-catalog="ecommerceremate" match-name="producto"/>
+  <table-filter match-catalog="ecommerceremate" match-name="revision"/>
+  <table-filter match-catalog="ecommerceremate" match-name="tipousuario"/>
+</hibernate-reverse-engineering>
