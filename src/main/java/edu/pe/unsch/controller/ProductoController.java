@@ -25,15 +25,19 @@ public class ProductoController {
 	public String categoria(@PathVariable("id") Integer id, Model model) {
 		Categoria categoria = categoriaService.find(id);
 		
-		model.addAttribute("titulo", "Categoria : e-commerce");
+		model.addAttribute("titulo", "Categoria : e-remate");
 		model.addAttribute("productos", categoria.getProductos());
 		model.addAttribute("classActive", "active");
+		return "views/public/productos/categoria";
+	}
+	@GetMapping("/category")
+	public String category() {
 		return "views/public/productos/categoria";
 	}
 
 	@GetMapping("/detalle_producto/{id}")
 	public String detalle_producto(@PathVariable("id") Integer id, Model model) {
-		model.addAttribute("titulo", "Detalle_producto : e-commerce");
+		model.addAttribute("titulo", "Detalle_producto : e-remate");
 		model.addAttribute("producto", productoService.find(id));
 		
 		return "views/public/productos/detalle_producto";

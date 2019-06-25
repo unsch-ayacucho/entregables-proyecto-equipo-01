@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="logo pull-left">
-						<a href="index.html"><img
+						<a th:href="@{/home}"><img
 							th:src="@{/public/images/home/logo.png}" alt="" /></a>
 					</div>
 
@@ -77,10 +77,11 @@
 					<div class="shop-menu pull-right">
 						<ul class="nav navbar-nav">
 							<li><a href="checkout.html"><i class="fa fa-crosshairs"></i>
-									Checkout</a></li>
+									<h5>Checkout</h5></a></li>
 							<li><a href="/cart"><i class="fa fa-shopping-cart"></i>
-									Carrito</a></li>
-							<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+									<h5>Carrito</h5></a></li>
+							<li><a href="/login"><i class="fa fa-lock"></i>
+								<h5>Login</h5></a></li>
 						</ul>
 					</div>
 				</div>
@@ -105,29 +106,40 @@
 					</div>
 					<div class="mainmenu pull-left">
 						<ul class="nav navbar-nav collapse navbar-collapse">
-							<li><a href="/home" class="active">Home</a></li>
+							<li><a th:href="@{/home}" class="active">Home</a></li>
+
 							<li class="dropdown"><a href="#">Shop<i
 									class="fa fa-angle-down"></i></a>
+
 								<ul role="menu" class="sub-menu">
-									<li><a th:href="@{'/product/shop' + ${categoria1.id}}"><span th:text="${categoria1.nambre}"></span></a></li>
-									<li><a th:href="@{/product/detalle_producto">Detalle de poductos</a></li>
+									<li><a th:href="@{/product/category}"><span>
+												Categoria</span></a></li>
+									<li><a th:href="@{/product/detalle_producto}">Detalle
+											de poductos</a></li>
 									<li><a href="checkout.html">Checkout</a></li>
 									<li><a href="/cart">Cart</a></li>
 									<li><a href="/login">Login</a></li>
 								</ul></li>
-							<th:block data-th-each="categoria : ${categories}">
-							<li class="dropdown"><a href="#" ><h5 th:text="${categoria.nombre}"></h5> 
-							<i class="fa fa-angle-down"></i></a>
-								<ul role="menu" class="sub-menu">
-								<th:block data-th-if="${categoria.categories.size()} > 0">
-								<ul>
-								<th:block data-th-each="categoria1 : ${categoria.categories}">
-									<li><a th:href="@{/product/shop}" th:text="${categoria.nombre}"> </a></li>
-									</ul>
-									</th:block>
-								</ul></li></th:block>
 
-						
+							<th:block data-th-each="categoria : ${categories}">
+								<li class="dropdown"><a href="#"><span
+										th:text="${categoria.nombre}"></span> <i
+										class="fa fa-angle-down"></i></a>
+									<ul role="menu" class="sub-menu">
+										<th:block data-th-if="${categoria.categories.size()} > 0">
+											<ul>
+												<th:block
+													data-th-each="categoria1 : ${categoria.categories}">
+
+													<li><a th:href="@{'/product/categoria/' +${categoria.id}}"
+														th:text="${categoria1.nombre}"> </a></li>
+												</th:block>
+											</ul>
+										</th:block>
+									</ul></li>
+							</th:block>
+
+
 						</ul>
 					</div>
 				</div>
