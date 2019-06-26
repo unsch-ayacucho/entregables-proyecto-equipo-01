@@ -1,5 +1,5 @@
 package edu.pe.unsch.entities;
-// Generated 19/06/2019 12:46:22 AM by Hibernate Tools 5.1.10.Final
+// Generated 25/06/2019 10:02:18 PM by Hibernate Tools 5.1.10.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -33,15 +33,20 @@ public class Producto implements java.io.Serializable {
 	private Boolean recomendado;
 	private String descripcion;
 	private Boolean visible;
+	private String urlimagen;
 	private Set<Imagen> imagens = new HashSet<Imagen>(0);
 	private Set<Revision> revisions = new HashSet<Revision>(0);
 
 	public Producto() {
 	}
 
+	public Producto(String urlimagen) {
+		this.urlimagen = urlimagen;
+	}
+
 	public Producto(Categoria categoria, Marca marca, String nombre, BigDecimal precio, BigDecimal precionuevo,
-			Integer stock, Boolean nuevo, Boolean recomendado, String descripcion, Boolean visible, Set<Imagen> imagens,
-			Set<Revision> revisions) {
+			Integer stock, Boolean nuevo, Boolean recomendado, String descripcion, Boolean visible, String urlimagen,
+			Set<Imagen> imagens, Set<Revision> revisions) {
 		this.categoria = categoria;
 		this.marca = marca;
 		this.nombre = nombre;
@@ -52,6 +57,7 @@ public class Producto implements java.io.Serializable {
 		this.recomendado = recomendado;
 		this.descripcion = descripcion;
 		this.visible = visible;
+		this.urlimagen = urlimagen;
 		this.imagens = imagens;
 		this.revisions = revisions;
 	}
@@ -158,6 +164,15 @@ public class Producto implements java.io.Serializable {
 
 	public void setVisible(Boolean visible) {
 		this.visible = visible;
+	}
+
+	@Column(name = "urlimagen", nullable = false, length = 30)
+	public String getUrlimagen() {
+		return this.urlimagen;
+	}
+
+	public void setUrlimagen(String urlimagen) {
+		this.urlimagen = urlimagen;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")

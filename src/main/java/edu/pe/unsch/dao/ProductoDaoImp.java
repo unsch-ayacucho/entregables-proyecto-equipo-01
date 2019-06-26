@@ -1,5 +1,7 @@
 package edu.pe.unsch.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -15,6 +17,10 @@ public class ProductoDaoImp  implements ProductoDao{
 		return entityManager 
 				.find(Producto.class, id);
 	}
+
+	
+	
+	
 	
 
 }
