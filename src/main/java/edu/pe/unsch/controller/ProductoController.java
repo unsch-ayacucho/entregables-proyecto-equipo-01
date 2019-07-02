@@ -39,6 +39,7 @@ public class ProductoController {
 	public String detalle_producto(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("titulo", "Detalle_producto : e-remate");
 		model.addAttribute("producto", productoService.find(id));
+		model.addAttribute("productosreciente", productoService.recientes(3));
 		
 		return "views/public/productos/detalle_producto";
 	}

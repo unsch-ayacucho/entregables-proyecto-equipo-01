@@ -10,5 +10,12 @@ public interface ProductoDao {
 	public Producto find(Integer id );
 	
 	
+	public List<Producto> recomendado(int n);
+	
+	public List<Producto> recientes(int n);
+		
+	
+	
+	
 
 }

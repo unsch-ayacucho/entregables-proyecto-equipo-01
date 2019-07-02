@@ -18,6 +18,27 @@ public class ProductoDaoImp  implements ProductoDao{
 				.find(Producto.class, id);
 	}
 
+	@Override
+	public List<Producto> recomendado(int n) {
+		// TODO Auto-generated method stub
+		return entityManager
+				.createQuery("from Producto where recomendado=:recomendado order by id desc",Producto.class)
+				.setParameter("recomendado", true)
+				.setMaxResults(n)
+				.getResultList();
+	}
+
+	@Override
+	public List<Producto> recientes(int n) {
+		// TODO Auto-generated method stub
+		return entityManager
+				.createQuery("fom Producto order by id desc", Producto.class)
+				.setMaxResults(n)
+				.getResultList();
+	}
+
+
+
 	
 	
 	
