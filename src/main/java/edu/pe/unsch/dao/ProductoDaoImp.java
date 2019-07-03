@@ -22,7 +22,7 @@ public class ProductoDaoImp  implements ProductoDao{
 	public List<Producto> recomendado(int n) {
 		// TODO Auto-generated method stub
 		return entityManager
-				.createQuery("from Producto where recomendado=:recomendado order by id desc",Producto.class)
+				.createQuery("from Producto where recomendado=:recomendado and visible =1 order by id desc",Producto.class)
 				.setParameter("recomendado", true)
 				.setMaxResults(n)
 				.getResultList();
@@ -32,7 +32,7 @@ public class ProductoDaoImp  implements ProductoDao{
 	public List<Producto> recientes(int n) {
 		// TODO Auto-generated method stub
 		return entityManager
-				.createQuery("fom Producto order by id desc", Producto.class)
+				.createQuery("from Producto order by id desc", Producto.class)
 				.setMaxResults(n)
 				.getResultList();
 	}

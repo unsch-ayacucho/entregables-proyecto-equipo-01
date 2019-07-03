@@ -233,36 +233,29 @@
 							</div>
 						</div>
 						<!--/category-products-->
+						
+						
 
 						<div class="brands_products">
 							<!--brands_products-->
-							<h2>Brands</h2>
+							<h2>Marca</h2>
 							<div class="brands-name">
+
 								<ul class="nav nav-pills nav-stacked">
-									<li><a href="#"> <span class="pull-right">(50)</span>Acne
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(56)</span>Grüne
-											Erde
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(27)</span>Albiro
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(32)</span>Ronhill
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(5)</span>Oddmolly
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(9)</span>Boudestijn
-									</a></li>
-									<li><a href="#"> <span class="pull-right">(4)</span>Rösch
-											creative culture
-									</a></li>
+									<th:block data-th-each="marca : ${marca}">
+										<li><a href="#"> <span class="pull-right">(50)</span><span
+												th:text="${marca.nombre}"></span>
+										</a></li>
+									</th:block>
 								</ul>
 							</div>
 						</div>
 						<!--/brands_products-->
-
+						
+						
 						<div class="price-range">
 							<!--price-range-->
-							<h2>Price Range</h2>
+							<h2>Rango de Precio</h2>
 							<div class="well text-center">
 								<input type="text" class="span2" value="" data-slider-min="0"
 									data-slider-max="600" data-slider-step="5"
@@ -287,194 +280,59 @@
 						<h2 class="title text-center">Articulos nuevos</h2>
 
 						<!-- For de aritulos nuevos  -->
+						<th:block data-th-each="producto1 : ${nuevoproducto}">
+							<div class="col-sm-4">
 
-						<div class="col-sm-4">
-							<th:block data-th-each="product : ${productsLatest}">
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<img th:src="@{/public/images/home/product1.jpg}" alt="" />
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
+											<img
+												th:src="@{'/public/images/productos/' + ${producto1.urlimagen}}" alt="" />
+											<h2>$ <span th:text="${producto1.precionuevo}"></span></h2>
+											<h4>Normal <s>$<span th:text="${producto1.precio}"></span></s></h4>
+											<p>
+											<h4><samp th:text="${producto1.nombre}"></samp></h4>
+											</p>
 											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
+												class="fa fa-shopping-cart"></i>Agregar a CArrito</a>
 										</div>
 										<div class="product-overlay">
 											<div class="overlay-content">
-												<h2>$56</h2>
-												<p>Easy Polo Black Edition</p>
+												<h2>$<span th:text="${producto1.precionuevo}"></span></h2>
+												<h4>Normal <s>$<span th:text="${producto1.precio}"></span></s> </h4>
+												<p>
+												<h4> <samp th:text="${producto1.nombre}"></samp> </h4>
+												</p>
 												<a href="#" class="btn btn-default add-to-cart"><i
-													class="fa fa-shopping-cart"></i>Add to cart</a>
+													class="fa fa-shopping-cart"></i>Agregar a Carrito</a>
 											</div>
 										</div>
+										<img th:src="@{/public/images/home/new.png}" class="new" alt="" />
 									</div>
+									
 									<div class="choose">
 										<ul class="nav nav-pills nav-justified">
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add
-													to wishlist</a></li>
-											<li><a href="#"><i class="fa fa-plus-square"></i>Add
-													to compare</a></li>
+											<li><a href="#"><i class="fa fa-plus-square"></i>Agregar
+													a Deseos</a></li>
+											<li><a href="#"><i class="fa fa-plus-square"></i>Agregar
+													a Compras</a></li>
 										</ul>
 									</div>
 								</div>
-							</th:block>
-							<!--  fin de for  -->
-						</div>
 
-
-
-
-
-
-
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img th:src="@{/public/images/home/product2.jpg}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to compare</a></li>
-									</ul>
-								</div>
 							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img th:src="@{/public/images/home/product3.jpg}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img th:src="@{/public/images/home/new.png}" class="new" alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img th:src="@{/public/images/home/product5.jpg}" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-									<img th:src="@{/public/images/home/sale.png}" class="new"
-										alt="" />
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="" />
-										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i
-											class="fa fa-shopping-cart"></i>Add to cart</a>
-									</div>
-									<div class="product-overlay">
-										<div class="overlay-content">
-											<h2>$56</h2>
-											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i
-												class="fa fa-shopping-cart"></i>Add to cart</a>
-										</div>
-									</div>
-								</div>
-								<div class="choose">
-									<ul class="nav nav-pills nav-justified">
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to wishlist</a></li>
-										<li><a href="#"><i class="fa fa-plus-square"></i>Add
-												to compare</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
+
+						</th:block>
+						<!--  fin de for  -->
+
+
+
+
+
+
+						
+						
+						
 
 					</div>
 					<!--features_items-->
@@ -800,7 +658,7 @@
 									<div class="item active">
 
 										<div class="col-sm-4">
-<div class="item"></div>
+											<div class="item"></div>
 											<div class="product-image-wrapper">
 												<div class="single-products">
 
@@ -808,12 +666,18 @@
 
 														<img
 															th:src="@{'/public/images/productos/' + ${producto.urlimagen}}"
-															| alt="" />
+															alt="" />
 														<h2>
-															$<span th:text="${producto.precio}"></span>
+															$<span th:text="${producto.precionuevo}"></span>
+
 														</h2>
+														<h4>
+															Normal <s>$<span th:text="${producto.precio}"></span></s>
+														</h4>
 														<p>
+														<h4>
 															<samp th:text="${producto.nombre}"></samp>
+														</h4>
 														</p>
 														<a href="#" class="btn btn-default add-to-cart"><i
 															class="fa fa-shopping-cart"></i>Agregar a Carrito</a>
@@ -826,7 +690,7 @@
 										</div>
 									</div>
 
-									
+
 
 								</th:block>
 							</div>
