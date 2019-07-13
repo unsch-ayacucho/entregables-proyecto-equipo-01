@@ -27,45 +27,56 @@
 						<tr class="cart_menu">
 							<td class="image">Item</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
+							<td class="price">Precio</td>
+							<td class="quantity">Cantidad</td>
 							<td class="total">Total</td>
 							<td></td>
 						</tr>
 					</thead>
 					<tbody>
+					<th:block th:each="item, i : ${session.carrito}">
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a th:href="@{'/productos/producto_detalle/' + ${item.producto.id}}">
+								<img th:src="@{'/public/images/productos/' +$${producto.urlimagen}}" th:alt="${item.producto.nombre}"></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a th:href="@{'/productos/producto_detalle/' + ${item.producto.id}}">
+								<span th:text="${item.producto.nombre}"></span></a></h4>
+								<p>Web ID: <span th:text="${item.producto.id}"></span></p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p> $<span th:text="${item.producto.precionuevo}"></span></p>
 							</td>
-							<td class="cart_quantity">
+							<!--  <td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
+									<a class="cart_quantity_up" th:href="${item.producto.cantidad} "> + </a>
 									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
 									<a class="cart_quantity_down" href=""> - </a>
 								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
+							</td>-->
+							<td>
+	                           <span th:text="${item.stock}"></span>
+	                        </td>
+	                        
+							<td class="cart_total">$
+	                         <span th:text="${item.producto.precionuevo * item.stock}"></span>
+	                         </td>
 							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+								<a class="cart_quantity_delete" th:href="@{'/carrito/delete/' + ${i.index}}"><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
+						
+						</th:block>
+
+
 
 						<tr>
 							<td class="cart_product">
 								<a href=""><img src="images/cart/two.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
+								<h4><a href="">objetivo faltacumplir </a></h4>
 								<p>Web ID: 1089772</p>
 							</td>
 							<td class="cart_price">
@@ -83,33 +94,12 @@
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
+							</td>	
 						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
-							</td>
-							<td class="cart_price">
-								<p>$59</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<a class="cart_quantity_up" href=""> + </a>
-									<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-									<a class="cart_quantity_down" href=""> - </a>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
-							</td>
-							<td class="cart_delete">
-								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-							</td>
-						</tr>
+						
+						
+						
+						
 					</tbody>
 				</table>
 			</div>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import edu.pe.unsch.entities.Categoria;
 import edu.pe.unsch.service.CategoriaService;
+import edu.pe.unsch.service.MarcaService;
 import edu.pe.unsch.service.ProductoService;
 
 @Controller
@@ -20,6 +21,8 @@ public class ProductoController {
 	public CategoriaService categoriaService;	
 	@Autowired
 	public ProductoService productoService;
+	@Autowired
+	public MarcaService marcaService;
 		
 	@GetMapping("/categoria/{id}")
 	public String categoria(@PathVariable("id") Integer id, Model model) {
@@ -28,6 +31,7 @@ public class ProductoController {
 		model.addAttribute("titulo", "Categoria : e-remate");
 		model.addAttribute("productos", categoria.getProductos());
 		model.addAttribute("classActive", "active");
+		model.addAttribute("marcaCa", marcaService.visible(6));
 		return "views/public/productos/categoria";
 	}
 	@GetMapping("/category")
@@ -38,8 +42,11 @@ public class ProductoController {
 	@GetMapping("/detalle_producto/{id}")
 	public String detalle_producto(@PathVariable("id") Integer id, Model model) {
 		model.addAttribute("titulo", "Detalle_producto : e-remate");
-		model.addAttribute("producto", productoService.find(id));
+		model.addAttribute("productoC", productoService.find(id));
 		model.addAttribute("productosreciente", productoService.recientes(3));
+		model.addAttribute("productoRecomendado", productoService.recomendado(9));
+		model.addAttribute("marca", marcaService.visible(6));
+		//model.addAttribute("marcaD", marcaService.visible(id));
 		
 		return "views/public/productos/detalle_producto";
 	}
