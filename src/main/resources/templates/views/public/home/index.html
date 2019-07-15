@@ -109,16 +109,23 @@
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Category</h2>
+						
 						<div class="panel-group category-products" id="accordian">
-							<!--category-productsr  <th:block data-th-each="category1 : ${categories}">-->
+							<!--category-productsr  <th:block data-th-each="category1 : ${categories}">
+							
+							<th:block data-th-each="category1 : ${categories}">
 							<div class="panel panel-default">
 								<div class="panel-heading">
+								<th:block data-th-if="${categoria.categories.size()} > 0">
+								<th:block data-th-each="categoria1 : ${categoria.categories}">
 									<h4 class="panel-title">
 										<a data-toggle="collapse" data-parent="#accordian"
-											href="#sportswear"> <span class="badge pull-right"><i
-												class="fa fa-plus"></i></span> Sportswear
+											th:href="@{'/product/categoria/' +${categoria.id}}""> <span  th:text="${categoria1.nombre}" class="badge pull-right"><i
+												class="fa fa-plus"></i></span> 
 										</a>
 									</h4>
+									</th:block>
+									
 								</div>
 								<div id="sportswear" class="panel-collapse collapse">
 									<div class="panel-body">
@@ -131,7 +138,11 @@
 										</ul>
 									</div>
 								</div>
+								
 							</div>
+							</th:block>
+							
+							-->
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<h4 class="panel-title">

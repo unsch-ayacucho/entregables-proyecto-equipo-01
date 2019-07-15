@@ -23,12 +23,12 @@ public class Login implements java.io.Serializable {
 	private Tipousuario tipousuario;
 	private String correo;
 	private String password;
-	private Boolean estado;
+	private Byte estado;
 
 	public Login() {
 	}
 
-	public Login(Cliente cliente, Tipousuario tipousuario, String correo, String password, Boolean estado) {
+	public Login(Cliente cliente, Tipousuario tipousuario, String correo, String password, Byte estado) {
 		this.cliente = cliente;
 		this.tipousuario = tipousuario;
 		this.correo = correo;
@@ -87,11 +87,11 @@ public class Login implements java.io.Serializable {
 	}
 
 	@Column(name = "estado")
-	public Boolean getEstado() {
+	public Byte getEstado() {
 		return this.estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(Byte estado) {
 		this.estado = estado;
 	}
 
