@@ -7,6 +7,6 @@ public interface CuentaService {
 	
 	public Login login(String correo, String password);
 	
-	public Login find(String Correo);
+	public Login find(String correo);
 
 }
