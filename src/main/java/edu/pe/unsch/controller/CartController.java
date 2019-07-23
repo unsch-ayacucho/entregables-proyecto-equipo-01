@@ -92,7 +92,7 @@ public class CartController {
 		}
 		return -1;
 		}
-	
+	// nuevo 
 	@PostMapping("/checkout")
 	public String checkout(Model model, HttpSession session) {
 		model.addAttribute("titulo", "Checkout : e-remate");
@@ -102,9 +102,7 @@ public class CartController {
 		} else {
 		// Guardar Orden
 		Orden orden = new Orden();
-		Login login =
-
-				cuentaService.find(session.getAttribute("correo").toString());
+		Login login =cuentaService.find(session.getAttribute("correo").toString());
 				System.out.println(session.getAttribute("correo").toString());
 				orden.setLogin(login);
 				orden.setFechacreacion(new Date());

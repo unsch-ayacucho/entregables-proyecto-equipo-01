@@ -9,16 +9,16 @@
   <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
   <mapping class="edu.pe.unsch.entities.Categoria"/>
   <mapping class="edu.pe.unsch.entities.Cliente"/>
+  <mapping class="edu.pe.unsch.entities.Detalleorden"/>
+  <mapping class="edu.pe.unsch.entities.Distrito"/>
   <mapping class="edu.pe.unsch.entities.Imagen"/>
   <mapping class="edu.pe.unsch.entities.Login"/>
   <mapping class="edu.pe.unsch.entities.Marca"/>
+  <mapping class="edu.pe.unsch.entities.Orden"/>
   <mapping class="edu.pe.unsch.entities.Producto"/>
+  <mapping class="edu.pe.unsch.entities.Provincia"/>
+  <mapping class="edu.pe.unsch.entities.Region"/>
   <mapping class="edu.pe.unsch.entities.Revision"/>
   <mapping class="edu.pe.unsch.entities.Tipousuario"/>
-  <mapping class="edu.pe.unsch.entities.Orden"/>
-  <mapping class="edu.pe.unsch.entities.Detalleorden"/>
-  <mapping class="edu.pe.unsch.entities.Region"/>
-  <mapping class="edu.pe.unsch.entities.Provincia"/>
-  <mapping class="edu.pe.unsch.entities.Distrito"/>
  </session-factory>
 </hibernate-configuration>

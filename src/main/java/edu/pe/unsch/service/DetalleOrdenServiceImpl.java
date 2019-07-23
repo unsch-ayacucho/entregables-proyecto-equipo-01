@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import edu.pe.unsch.dao.DetalleOrdenDao;
 import edu.pe.unsch.entities.Detalleorden;
 
-@Repository("detalleOrdenDao")
+@Repository("detalleOrdenService")
 @Transactional
 public class DetalleOrdenServiceImpl implements DetalleOrdenService {
   @Autowired
