@@ -1,5 +1,5 @@
 package edu.pe.unsch.entities;
-// Generated 25/06/2019 10:02:18 PM by Hibernate Tools 5.1.10.Final
+// Generated 22/07/2019 10:23:08 PM by Hibernate Tools 5.1.10.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 public class Cliente implements java.io.Serializable {
 
 	private Integer id;
-	private Localidad localidad;
+	private Distrito distrito;
 	private String appaterno;
 	private String apmaterno;
 	private String nombre;
@@ -33,15 +33,16 @@ public class Cliente implements java.io.Serializable {
 	private String sexo;
 	private Date fechanacimiento;
 	private Date fecharegistro;
+	private String localidad;
 	private Set<Revision> revisions = new HashSet<Revision>(0);
 	private Set<Login> logins = new HashSet<Login>(0);
 
 	public Cliente() {
 	}
 
-	public Cliente(Localidad localidad, String appaterno, String apmaterno, String nombre, String telefono, String sexo,
+	public Cliente(Distrito distrito, String appaterno, String apmaterno, String nombre, String telefono, String sexo,
 			Date fechanacimiento, Date fecharegistro, Set<Revision> revisions, Set<Login> logins) {
-		this.localidad = localidad;
+		this.distrito = distrito;
 		this.appaterno = appaterno;
 		this.apmaterno = apmaterno;
 		this.nombre = nombre;
@@ -66,13 +67,13 @@ public class Cliente implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idlocalidad")
-	public Localidad getLocalidad() {
-		return this.localidad;
+	@JoinColumn(name = "iddistrito")
+	public Distrito getDistrito() {
+		return this.distrito;
 	}
 
-	public void setLocalidad(Localidad localidad) {
-		this.localidad = localidad;
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
 	}
 
 	@Column(name = "appaterno", length = 60)

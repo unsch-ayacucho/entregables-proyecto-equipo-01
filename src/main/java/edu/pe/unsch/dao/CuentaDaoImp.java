@@ -37,4 +37,15 @@ public class CuentaDaoImp implements CuentaDao {
 		
 	}
 
+	@Override
+	public Login find(String correo) {
+		// TODO Auto-generated method stub
+		return (Login) entityManager
+				.createQuery("from Login "
+
+				+ "where coreo = :correo")
+				.setParameter("correo",correo)
+				.getSingleResult();
+	}
+
 }

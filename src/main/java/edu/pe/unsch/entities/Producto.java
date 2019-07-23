@@ -1,5 +1,5 @@
 package edu.pe.unsch.entities;
-// Generated 25/06/2019 10:02:18 PM by Hibernate Tools 5.1.10.Final
+// Generated 22/07/2019 10:23:08 PM by Hibernate Tools 5.1.10.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -34,6 +34,7 @@ public class Producto implements java.io.Serializable {
 	private String descripcion;
 	private Boolean visible;
 	private String urlimagen;
+	private Set<Detalleorden> detalleordens = new HashSet<Detalleorden>(0);
 	private Set<Imagen> imagens = new HashSet<Imagen>(0);
 	private Set<Revision> revisions = new HashSet<Revision>(0);
 
@@ -46,7 +47,7 @@ public class Producto implements java.io.Serializable {
 
 	public Producto(Categoria categoria, Marca marca, String nombre, BigDecimal precio, BigDecimal precionuevo,
 			Integer stock, Boolean nuevo, Boolean recomendado, String descripcion, Boolean visible, String urlimagen,
-			Set<Imagen> imagens, Set<Revision> revisions) {
+			Set<Detalleorden> detalleordens, Set<Imagen> imagens, Set<Revision> revisions) {
 		this.categoria = categoria;
 		this.marca = marca;
 		this.nombre = nombre;
@@ -58,6 +59,7 @@ public class Producto implements java.io.Serializable {
 		this.descripcion = descripcion;
 		this.visible = visible;
 		this.urlimagen = urlimagen;
+		this.detalleordens = detalleordens;
 		this.imagens = imagens;
 		this.revisions = revisions;
 	}
@@ -173,6 +175,15 @@ public class Producto implements java.io.Serializable {
 
 	public void setUrlimagen(String urlimagen) {
 		this.urlimagen = urlimagen;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")
+	public Set<Detalleorden> getDetalleordens() {
+		return this.detalleordens;
+	}
+
+	public void setDetalleordens(Set<Detalleorden> detalleordens) {
+		this.detalleordens = detalleordens;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")

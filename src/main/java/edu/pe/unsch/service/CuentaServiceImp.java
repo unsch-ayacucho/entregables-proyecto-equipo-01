@@ -28,4 +28,10 @@ public class CuentaServiceImp implements CuentaService{
 		return cuentaDao.login(correo , password);
 	}
 
+	@Override
+	public Login find(String correo) {
+		// TODO Auto-generated method stub
+		return cuentaDao.find(correo);
+	}
+
 }

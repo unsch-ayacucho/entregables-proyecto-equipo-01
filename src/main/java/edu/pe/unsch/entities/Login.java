@@ -1,6 +1,8 @@
 package edu.pe.unsch.entities;
-// Generated 25/06/2019 10:02:18 PM by Hibernate Tools 5.1.10.Final
+// Generated 22/07/2019 10:23:08 PM by Hibernate Tools 5.1.10.Final
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,16 +27,19 @@ public class Login implements java.io.Serializable {
 	private String correo;
 	private String password;
 	private Byte estado;
+	private Set<Orden> ordens = new HashSet<Orden>(0);
 
 	public Login() {
 	}
 
-	public Login(Cliente cliente, Tipousuario tipousuario, String correo, String password, Byte estado) {
+	public Login(Cliente cliente, Tipousuario tipousuario, String correo, String password, Byte estado,
+			Set<Orden> ordens) {
 		this.cliente = cliente;
 		this.tipousuario = tipousuario;
 		this.correo = correo;
 		this.password = password;
 		this.estado = estado;
+		this.ordens = ordens;
 	}
 
 	@Id
@@ -93,6 +99,15 @@ public class Login implements java.io.Serializable {
 
 	public void setEstado(Byte estado) {
 		this.estado = estado;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "login")
+	public Set<Orden> getOrdens() {
+		return this.ordens;
+	}
+
+	public void setOrdens(Set<Orden> ordens) {
+		this.ordens = ordens;
 	}
 
 }

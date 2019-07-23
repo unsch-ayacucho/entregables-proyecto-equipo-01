@@ -4,11 +4,15 @@
 <hibernate-reverse-engineering>
   <table-filter match-catalog="ecommerceremate" match-name="categoria"/>
   <table-filter match-catalog="ecommerceremate" match-name="cliente"/>
+  <table-filter match-catalog="ecommerceremate" match-name="detalleorden"/>
+  <table-filter match-catalog="ecommerceremate" match-name="distrito"/>
   <table-filter match-catalog="ecommerceremate" match-name="imagen"/>
-  <table-filter match-catalog="ecommerceremate" match-name="localidad"/>
   <table-filter match-catalog="ecommerceremate" match-name="login"/>
   <table-filter match-catalog="ecommerceremate" match-name="marca"/>
+  <table-filter match-catalog="ecommerceremate" match-name="orden"/>
   <table-filter match-catalog="ecommerceremate" match-name="producto"/>
+  <table-filter match-catalog="ecommerceremate" match-name="provincia"/>
+  <table-filter match-catalog="ecommerceremate" match-name="region"/>
   <table-filter match-catalog="ecommerceremate" match-name="revision"/>
   <table-filter match-catalog="ecommerceremate" match-name="tipousuario"/>
 </hibernate-reverse-engineering>
